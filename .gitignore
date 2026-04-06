@@ -24,3 +24,16 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+# Logs and temp files
+*.log
+*.pid
+*.json
+!docker-compose.yml
+
+# Scratch scripts
+manual_curl_tests.sh
+test_manual.py
+test_db.py
+fix_db.py
+manual_test_results.txt
