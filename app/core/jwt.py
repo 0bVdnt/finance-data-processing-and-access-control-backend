@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 from uuid import UUID
 
-from jose import JWTError, jwt
+from jose import jwt
 
 from app.config import get_settings
 
@@ -37,15 +37,10 @@ def decode_access_token(token: str) -> dict:
     Raises JWTError if the token is invalid or expired.
     Returns the payload dict with 'sub' and 'role'.
     """
-
     settings = get_settings()
 
-    try:
-        payload = jwt.decode(
-            token,
-            settings.JWT_SECRET,
-            algorithms=[settings.JWT_ALGORITHM],
-        )
-        return payload
-    except JWTError:
-        raise
+    return jwt.decode(
+        token,
+        settings.JWT_SECRET,
+        algorithms=[settings.JWT_ALGORITHM],
+    )

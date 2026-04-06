@@ -5,12 +5,7 @@ from app.database import get_db
 from app.middleware.auth import get_current_user
 from app.models.user import User
 from app.schemas.common import ApiResponse
-from app.schemas.user import (
-    LoginRequest,
-    RegisterRequest,
-    TokenResponse,
-    UserResponse,
-)
+from app.schemas.user import LoginRequest, RegisterRequest, TokenResponse, UserResponse
 from app.services.auth_service import AuthService
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])

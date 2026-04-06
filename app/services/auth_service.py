@@ -4,9 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.jwt import create_access_token
 from app.core.security import hash_password, verify_password
-from app.errors import (
-    ConflictError,
-)
+from app.errors import ConflictError
 from app.errors.exceptions import InactiveAccountError, UnauthorizedError
 from app.repositories.user_repository import UserRepository
 from app.schemas.user import LoginRequest, RegisterRequest, TokenResponse, UserResponse

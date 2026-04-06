@@ -116,10 +116,10 @@ class UserService:
 
         # Update status
         updated_user = await self.user_repo.update_status(user_id, data.is_active)
+        if updated_user is None:
+            raise NotFoundError("User", str(user_id))
 
         action = "activated" if data.is_active else "deactivated"
         logger.info(f"User {action}: user={user_id} by={admin_user.id}")
-        if updated_user is None:
-            raise NotFoundError("User", str(user_id))
 
         return updated_user
